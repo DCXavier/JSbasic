@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Jump3</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+<script>
+    function jumpPA() {
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 || i % 10 === 3 || Math.floor(i / 10) === 3) {
+                console.log("PA: " + i , i % 3 === 0, (i % 10) % 3 === 0, Math.floor(i / 10) === 3);
+            }
+            else {
+                console.log(i);
+            }
+        }
+    }
+    jumpPA();
+</script>
+</body>
+</html>
