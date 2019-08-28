@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>submit</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+<input id="name" type="text" placeholder="name">
+<button id="submit-btn">Submit</button>
+<script>
+    let btn = document.getElementById('submit-btn');
+    let name = document.getElementById('name');
+    btn.addEventListener('click', () => {
+        console.log(name.value);
+    }, false);
+    name.addEventListener('focus', () => {
+        name.addEventListener('keyup', (e) => {
+            switch (e.key) {
+                case 'Escape':
+                    name.value = '';
+                    break;
+                case 'Enter':
+                    console.log(name.value);
+                    break;
+            }
+        }, false);
+    }, false);
+</script>
+</body>
+</html>

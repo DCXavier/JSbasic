@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Smile</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+    <div id="smile-face"></div>
+</body>
+<script>
+    let face = document.getElementById('smile-face');
+    let clientY = 0;
+    face.style.width = "480px";
+    face.style.height = "480px";
+    face.style.margin = "0 auto";
+    face.style.background = "url('images/smile.jpg') no-repeat 0 0";
+    let change = () => {
+        this.time = setTimeout(() => {
+            clientY += 480;
+            face.style.background = "url('images/smile.jpg') no-repeat 0 " + (-clientY) + "px" ;
+
+            if (clientY > 7680) {
+                clientY = 7680;
+                face.style.background = "url('images/smile.jpg') no-repeat 0 " + (-clientY) + "px" ;
+                clearTimeout(this.time);
+                back();
+            }
+            else {
+                change();
+            }
+        }, 100);
+    };
+
+    let back = () => {
+        this.time = setTimeout(() => {
+            clientY -= 480;
+            face.style.background = "url('images/smile.jpg') no-repeat 0 " + (-clientY) + "px" ;
+
+            if (clientY < 0) {
+                clientY = 0;
+                face.style.background = "url('images/smile.jpg') no-repeat 0 " + (-clientY) + "px" ;
+                clearTimeout(this.time);
+                change();
+            }
+            else {
+                back();
+            }
+        }, 100);
+    };
+    change();
+</script>
+</html>

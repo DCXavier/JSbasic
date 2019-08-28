@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+<button id="fade-btn">淡出</button>
+<script>
+    let fadeObj = document.getElementById('fade-obj');
+    let fadeBtn = document.getElementById('fade-btn');
+    let opacity = 1;
+
+    fadeBtn.addEventListener('click', () => {
+        fadeBtn.disabled = "disabled";
+        // timeout();
+        if (fadeBtn.innerText === "淡入") {
+            intervalShow();
+        }
+        else {
+            intervalHide();
+        }
+
+    }, false);
+
+    let timeoutShow = () => {
+        this.time = setTimeout(()=> {
+            opacity += 0.02;
+            fadeObj.style.opacity = opacity;
+            if (opacity > 1) {
+                fadeObj.style.opacity = "1";
+                clearTimeout(this.time);
+                fadeBtn.removeAttribute("disabled");
+                fadeBtn.innerText = "淡出";
+            }
+            else {
+                timeoutShow();
+            }
+        }, 100);
+
+    };
+
+    let timeoutHide = () => {
+        this.time = setTimeout(()=> {
+            opacity -= 0.02;
+            fadeObj.style.opacity = opacity;
+            if (opacity < 0) {
+                fadeObj.style.opacity = "0";
+                clearTimeout(this.time);
+                fadeBtn.removeAttribute("disabled");
+                fadeBtn.innerText = "淡入";
+            }
+            else {
+                timeoutHide();
+            }
+        }, 100);
+    };
+
+    let intervalShow = () => {
+        this.time = setInterval(() => {
+            opacity += 0.02;
+            fadeObj.style.opacity = opacity;
+            if (opacity > 1) {
+                fadeObj.style.opacity = "1";
+                clearInterval(this.time);
+                fadeBtn.removeAttribute("disabled");
+                fadeBtn.innerText = "淡出";
+            }
+        },100);
+    };
+
+    let intervalHide = () => {
+        this.time = setInterval(() => {
+            opacity -= 0.02;
+            fadeObj.style.opacity = opacity;
+            if (opacity < 0) {
+                fadeObj.style.opacity = "0";
+                clearInterval(this.time);
+                fadeBtn.removeAttribute("disabled");
+                fadeBtn.innerText = "淡入";
+            }
+        },100);
+    };
+</script>
+</body>
+</html>

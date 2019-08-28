@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+    <style>
+        select {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<label>
+    <input id="school" name="status" type="radio">
+    School
+</label>
+<label>
+    <input id="company" name="status" type="radio">
+    Company
+</label>
+
+<select id="school-select">
+    <option>北京邮电大学</option>
+    <option>黑龙江大学</option>
+    <option>华中科技大学</option>
+</select>
+
+<select id="company-select">
+    <option>百度</option>
+    <option>爱奇艺</option>
+</select>
+<script>
+    let school = document.getElementById('school');
+    let company = document.getElementById('company');
+    let schoolSelect = document.getElementById('school-select');
+    let companySelect = document.getElementById('company-select');
+
+    company.style.marginLeft = "30px";
+    schoolSelect.style.display = "inline-block";
+    schoolSelect.style.position = "absolute";
+    schoolSelect.style.opacity = "0";
+    schoolSelect.style.zIndex = "2";
+    schoolSelect.style.width = "100px";
+    schoolSelect.style.height = "25px";
+
+    companySelect.style.display = "inline-block";
+    companySelect.style.position = "absolute";
+    companySelect.style.opacity = "0";
+    companySelect.style.zIndex = "2";
+    companySelect.style.width = "100px";
+    companySelect.style.height = "25px";
+
+
+    const whoClickWhoShow = () => {
+        companySelect.style.left = "120px";
+        companySelect.style.top = "8px";
+        schoolSelect.style.left = "5px";
+        schoolSelect.style.top = "8px";
+        schoolSelect.addEventListener('click', () => {
+            school.checked = "checked";
+        }, false);
+        companySelect.addEventListener('click', () => {
+            company.checked = "checked";
+        }, false);
+    };
+    // whoClickWhoShow();
+
+    const whoClickOtherShow = () => {
+        schoolSelect.style.left = "120px";
+        schoolSelect.style.top = "8px";
+        companySelect.style.left = "5px";
+        companySelect.style.top = "8px";
+        schoolSelect.addEventListener('click', () => {
+            company.checked = "checked";
+        }, false);
+        companySelect.addEventListener('click', () => {
+            school.checked = "checked";
+        }, false);
+    };
+    whoClickOtherShow();
+</script>
+</body>
+</html>
