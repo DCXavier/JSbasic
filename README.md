@@ -19,4 +19,12 @@
     <h4>第19天</h4>
     <a href="https://dcxavier.github.io/JSbasic/find.html">预览DOM操作</a>
   </li>
+  <li>
+    <h4>第20-21天</h4>
+    <a href="https://dcxavier.github.io/JSbasic/submit.html">预览输入框响应</a>
+    <a href="https://dcxavier.github.io/JSbasic/hide-and-show.html">预览元素的显示及隐藏</a>
+    <a href="https://dcxavier.github.io/JSbasic/color.html">预览颜色</a>
+    <a href="https://dcxavier.github.io/JSbasic/timeout.html">预览计时器</a>
+    <a href="https://dcxavier.github.io/JSbasic/smile.html">预览动态笑脸</a>
+  </li>
 </ul>
